@@ -52,10 +52,10 @@
 		
 		<section  class="col-md-5">
 			<h2>Je propose</h2>
-			<form role="form" class="form-signin" action="form.php">
+			<form role="form" name="addHosting" ng-controller="HostingController as hostingCtrl" ng-submit="addHosting.$valid && hostingCtrl.addHost()" class="form-signin" novalidate>
 				<label class="col-md-6" for="nb_couchage">Nombre de couchages*</label>
-				<div class="col-md-3">
-					<select id="nb_couchage" name="id_couchage" class="form-control col-md-2" required="">
+				<div class="col-md-3 col-xs-6">
+					<select id="nb_couchage" name="id_couchage" class="form-control col-md-2" ng-model="hostingCtrl.host.nb_couchage" required>
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
@@ -67,10 +67,10 @@
 				<div class="clearfix"></div>
 				
 				<label class="sr-only" for="temps_trajet">Temps de trajet estimé jusqu'au bal</label>
-				<input type="text" placeholder="Temps de trajet estimé jusqu'au bal" class="form-control" id="temps_trajet">
+				<input type="text" placeholder="Temps de trajet estimé jusqu'au bal" class="form-control" id="temps_trajet" ng-model="hostingCtrl.host.temps_trajet">
 				
 				<label class="sr-only" for="description">Description des conditions d'hébergement</label>
-				<textarea name="description" required="" id="description" placeholder="Faites une rapide description des conditions d'accueil, par exemple : J'ai un canapé lit deux places disponibles et je peux fournir les draps" class="form-control"></textarea>
+				<textarea name="description" ng-model="hostingCtrl.host.description" required id="description" placeholder="Faites une rapide description des conditions d'accueil, par exemple : J'ai un canapé lit deux places disponibles et je peux fournir les draps" class="form-control"></textarea>
 				
 				<section id="account" ng-controller="TabController as tab" class="ng-scope">
 					<ul class="nav nav-pills">
@@ -81,36 +81,14 @@
 							<a href="" ng-click="tab.setTab(2)">Je n'ai pas encore de compte</a>
 						</li>
 					</ul>
+										
+					<form-login ng-if="tab.isSet(1)"></form-login>
 					
-					<div class="account" ng-show="tab.isSet(1)">
-						<label class="sr-only" for="login">Courriel</label>
-						<input type="email" placeholder="Courriel" class="form-control" name="login" id="login">
-						
-						<label class="sr-only" for="login_password">Mot de passe</label>
-						<input type="password" placeholder="Mot de passe" class="form-control" id="login_password" name="login_password">
-					</div>
-					
-					<div class="no-account" ng-show="tab.isSet(2)">
-						
-						<label class="sr-only" for="prenom">Prénom</label>
-						<input type="text" placeholder="Prénom" class="form-control" name="prenom" id="prenom">
-						
-						<label class="sr-only" for="login">Courriel</label>
-						<input type="email" placeholder="Courriel" class="form-control" name="courriel" id="courriel">
-					
-						<label class="sr-only" for="adresse">Adresse</label>
-						<input type="text" placeholder="Adresse" class="form-control" name="adresse" id="adresse">
-					
-						<label class="sr-only" for="ville">Code postal</label>
-						<input type="text" placeholder="Code postal" class="form-control" name="cp" id="cp">
-					
-						<label class="sr-only" for="ville">Ville</label>
-						<input type="text" placeholder="Ville" class="form-control" name="ville" id="ville">
-						
-						<label class="sr-only" for="zone_transport">Zone RATP / SNCF</label>
-						<input type="text" placeholder="Zone RATP / SNCF" class="form-control" name="zone_transport" id="zone_transport">
-					</div>
+					<form-create-account ng-if="tab.isSet(2)"></form-create-account>
 				</section>
+				
+				addHosting is {{addHosting.$valid}}
+				
 				<button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
 			</form>
 		</section>

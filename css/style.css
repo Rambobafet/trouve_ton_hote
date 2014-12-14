@@ -1,0 +1,28 @@
+/*
+	Parent theme : Bootstrap Jumbotron
+	Framework : Angular.js
+	Custom : for Carambal
+	Date : 2014/12/14
+	Author : Bob
+*/
+
+/*
+	Tabs
+*/
+
+ul.nav.nav-pills{
+	margin: 15px 0;
+}
+
+/*
+	Form
+*/
+
+input,
+select, 
+textarea{
+	margin-bottom: 15px;
+}
+
+.ng-dirty.ng-invalid{ border-color: #FA787E; }
+.ng-dirty.ng-valid{ border-color: #78FA89; }
