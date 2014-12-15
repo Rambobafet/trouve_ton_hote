@@ -4,6 +4,25 @@
 <label class="sr-only" for="login">Courriel</label>
 <input type="email" placeholder="Courriel" class="form-control" name="courriel" id="courriel" required ng-model="hostingCtrl.host.courriel" >
 
+<fieldset>
+<label>Je parle :</label>
+<div class="clearfix"></div>
+<div class="checkbox col-lg-6">
+	<label>
+	  <input type="checkbox" name="language[]" value="Anglais"> Anglais
+	</label>
+</div>
+
+<div class="checkbox col-lg-6" >
+	<label>
+	  <input type="checkbox" name="language[]" value="Flammand"> Flammand
+	</label>
+</div>
+<div class="clearfix"></div>
+<div class="col-lg-6">
+  <input type="text" class="form-control" name="language[]" value="" placeholder="Je parle aussi...">
+</div><!-- /.col-lg-6 -->
+</fieldset>
 <label class="sr-only" for="password">Choisissez un mot de passe</label>
 <input type="password" placeholder="Choisissez un mot de passe" class="form-control" id="password" name="password" required ng-model="hostingCtrl.host.password">
 

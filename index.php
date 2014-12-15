@@ -81,13 +81,11 @@
 							<a href="" ng-click="tab.setTab(2)">Je n'ai pas encore de compte</a>
 						</li>
 					</ul>
-										
+					
 					<form-login ng-if="tab.isSet(1)"></form-login>
 					
 					<form-create-account ng-if="tab.isSet(2)"></form-create-account>
 				</section>
-				
-				addHosting is {{addHosting.$valid}}
 				
 				<button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
 			</form>
